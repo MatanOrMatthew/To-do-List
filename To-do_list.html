@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+<style>
+/* General body styles */
+body {
+    background-color: #f0f4f8; /* lighter and softer background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the to-do list */
+.container {
+    background-color: #ffffff; /* white card */
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* soft shadow */
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* Input styles */
+input {
+    width: 90%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Focus effect for input */
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    outline: none;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:first-of-type {
+    background-color: #28a745;
+    color: white;
+}
+
+button:first-of-type:hover {
+    background-color: #218838;
+}
+
+button:last-of-type {
+    background-color: #007bff;
+    color: white;
+}
+
+button:last-of-type:hover {
+    background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Create your list:</h1>
+    <input type="text" placeholder="Add a title" class="title" id="title">
+    <input type="text" placeholder="Task 1" id="text1">
+    <input type="text" placeholder="Task 2" id="text2">
+    <input type="text" placeholder="Task 3" id="text3">
+    <button type="submit" id="submitbutton">Submit</button>
+
+<script>
+const button = document.getElementById('submitbutton');
+const title = document.getElementById('title');
+const text1 = document.getElementById('text1');
+const text2 = document.getElementById('text2');
+const text3 = document.getElementById('text3');
+
+button.addEventListener('click', function() {
+
+    const heading1 = document.createElement('h2');
+    const heading2 = document.createElement('h2');
+    const heading3 = document.createElement('h2');
+    const heading4 = document.createElement('h1'); 
+
+    heading1.innerText = "1. " + text1.value;
+    heading2.innerText = "2. " + text2.value;
+    heading3.innerText = "3. " + text3.value;
+    heading4.innerText = "Title: " + title.value;
+
+    text1.parentNode.replaceChild(heading1, text1);
+    text2.parentNode.replaceChild(heading2, text2);
+    text3.parentNode.replaceChild(heading3, text3);
+    title.parentNode.replaceChild(heading4, title)
+
+    button.style.display = 'none';
+});
+</script>
+</div>
+</body>
+</html>
